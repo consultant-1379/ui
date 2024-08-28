@@ -1,0 +1,19 @@
+{
+  "pbaInfo": {
+    "pba": {
+      "name": "aia-bps-streaming",
+      "version": "0.1.14",
+      "description": "This template demonstrates how to process a stream of events coming on Kafka (or any other event distribution mechanism) using Apache Kafka.",
+      "portal": {
+        "title": "Streaming Processing (Spark based)"
+      }
+    }
+  },
+  "renames":[
+    {
+      "from":"src/main/java/com/ericsson/aia/bps/streaming/correlations/ExampleApp.java",
+      "to":"src/main/java/com/ericsson/aia/bps/streaming/correlations/${metaInfo.pbaNameInCamelCase}.java"
+    }
+  ]
+
+}

@@ -1,0 +1,24 @@
+<div class="elOssBssPaasLib-wExtensionContent">
+    <div><span class="elOssBssPaasLib-label">name:</span> {{pba.name}}</div>
+    <div><span class="elOssBssPaasLib-label">version:</span> {{pba.version}}</div>
+    <div><span class="elOssBssPaasLib-label">description:</span> {{pba.description}}</div>
+    <div><span class="elOssBssPaasLib-label">id:</span> {{pba.id}}</div>
+
+    <header class="elOssBssPaasLib-subHeader">Dependencies</header>
+    {{#each pba.dependencies}}
+        <section class="elOssBssPaasLib-section">
+            <div><span class="elOssBssPaasLib-label">qualifier:</span> {{this.qualifier}}</div>
+            <div><span class="elOssBssPaasLib-label">reference:</span> {{this.reference}}</div>
+            <div><span class="elOssBssPaasLib-label">type:</span> {{this.type}}</div>
+        </section>
+    {{/each}}
+
+    <header class="elOssBssPaasLib-subHeader">Platforms</header>
+    {{#each pba.dependencies}}
+        <section class="elOssBssPaasLib-section">
+            <div><span class="elOssBssPaasLib-label">version:</span> {{this.version}}</div>
+            <div><span class="elOssBssPaasLib-label">type:</span> {{this.type}}</div>
+        </section>
+    {{/each}}
+</div>
+<e-link src="./_extensionContent.less"/>

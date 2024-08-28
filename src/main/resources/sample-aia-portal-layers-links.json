@@ -1,0 +1,57 @@
+{
+  "layers": [
+    {
+      "title": "SDK",
+      "rows": [],
+      "sections": []
+    },
+    {
+      "title": "Applications",
+      "links": {
+        "ci": {
+          "title": "Create App",
+          "url": "/paas-ui/index.html#home/create-app"
+        }
+      },
+      "rows": [
+        {
+          "title": "Development Work Flow Demo",
+          "url": "OPTIONAL: http://atrcxb2560-1.athtem.eei.ericsson.se:7888/",
+          "links": {
+            "discover": {
+              "title": "OPTIONAL: Dev Guide",
+              "url": "/#dummy-link"
+            },
+            "discuss": {},
+            "issues": {},
+            "clone": {},
+            "submit": {},
+            "ci": {},
+            "release": {}
+          }
+        }
+      ],
+      "sections": [
+        {
+          "title": "Integration Points",
+          "rows": [
+            {
+              "title": "BPS Base",
+              "links": {}
+            }
+          ]
+        },
+        {
+          "title": "Extension Points",
+          "rows": [
+            {
+              "title": "bps-base-service-extension-point",
+              "links": {}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+

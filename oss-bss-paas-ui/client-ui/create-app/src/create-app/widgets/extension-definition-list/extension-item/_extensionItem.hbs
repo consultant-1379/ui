@@ -1,0 +1,24 @@
+<li class="eaCreateApp-wExtensionList-item">
+    <div class="eaCreateApp-wExtensionList-itemHeader">
+        <div class="eaCreateApp-wExtensionList-itemSwitch">
+            <e-element src="widgets/Switcher" e-options="switcherOptions" e-id="switcher"/>
+        </div>
+
+        <div class="eaCreateApp-wExtensionList-itemName" title="{{data.name}}">
+            <i e-id="duplicateBtn" class="ebIcon ebIcon_duplicate ebIcon_interactive eaCreateApp-wExtensionList-itemInfoIcon" tabindex="0"></i>
+            <i e-id="infoBtn" class="ebIcon ebIcon_info ebIcon_interactive eaCreateApp-wExtensionList-itemInfoIcon" tabindex="0"></i>
+            {{data.name}}
+        </div>
+    </div>
+    <div class="eaCreateApp-wExtensionList-itemBody">
+        <div class="eaCreateApp-wExtensionList-itemForm">
+            <input type="text" placeholder="Name" disabled class="ebInput ebInput_width_xLong" e-id="extensionName"/>
+            <input type="text" placeholder="Version" disabled class="ebInput ebInput_width_small" e-id="extensionVersion"/>
+            <i e-id="settingsBtn" class="ebIcon ebIcon_settings ebIcon_interactive eaCreateApp-wExtensionList-itemSettingsIcon" title="More settings" tabindex="0"></i>
+        </div>
+        <div class="ebText_alternative">
+            {{data.description}}
+        </div>
+    </div>
+</li>
+<e-link src="./_extensionItem.less"/>

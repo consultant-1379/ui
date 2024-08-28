@@ -1,0 +1,67 @@
+.eaHome-wLinkList {
+
+    //-------------------------------------
+
+    @screen-sd_768: 768px;
+    @screen-md_992: 992px;
+    @screen-mld_1024: 1024px;
+    @screen-ld_1280: 1280px;
+
+    //-------------------------------------
+
+    &-list {
+        list-style: none;
+        margin: 15px 0;
+        padding: 0;
+
+        &Item {
+            display: block;
+            vertical-align: top;
+            width: 90%;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 15px auto;
+
+            &_red {
+                background-image: linear-gradient(to right bottom, #e32119 0%, #ff7600 100%);
+            }
+            &_green {
+                background-image: linear-gradient(to right bottom, #a2c517 0%, #30ab55 100%);
+            }
+            &_blue {
+                background-image: linear-gradient(to right bottom, #00285e 0%, #0082b9 100%);
+            }
+
+            @media (min-width: @screen-sd_768) {
+                display: inline-block;
+                width: calc(~'33% - 30px');
+                margin: 15px;
+                box-sizing: border-box;
+                padding: 15px 15px 5px;
+            }
+
+
+            @media (min-width: @screen-ld_1280) {
+                width: calc(~'33% - 50px');
+                margin: 25px;
+            }
+
+            &Icon {
+                display: block;
+                height: 100px;
+                padding: 10px;
+            }
+
+            &Title {
+                color: #FFFFFF;
+                text-align: center;
+                font-size: 2.4rem;
+                margin: 12px 0 20px;
+
+                @media (min-width: @screen-md_992) {
+                    font-size: 3.2rem;
+                }
+            }
+        }
+    }
+}

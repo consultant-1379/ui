@@ -1,0 +1,32 @@
+{
+	"pba": {
+		"name": "aia-development-work-flow-demo",
+		"version": "0.11.7",
+        "description":"Hello world app to run on AIA platform",
+		"service":[
+		    {
+                 "name":"test-service",
+                 "container_port":80,
+                 "service_port":0
+		    }
+		],
+         "portal": {
+           "title": "AIA Development Work Flow Demo",
+           "order": 1,
+           "description":"Hello world app to run on AIA platform",
+           "downloads": [
+             {
+               "title": "0.11.7",
+               "link": "/paas/v1/repositories/applications/aia-development-work-flow-demo/0.11.7/pba.json?download=true"
+             }
+           ]
+         }
+	},
+	"image":[
+		{"image_id": "armdocker.rnd.ericsson.se/aia/aia-development-work-flow-demo:0.11.7",
+		 "image_name": "aia-development-work-flow-demo",
+		 "image_version":"0.11.7",
+		 "image_type": "container"
+		}
+	]
+}

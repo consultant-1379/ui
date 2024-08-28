@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.ericsson.aia</groupId>
+    <artifactId>${pbaInfo.pba.name}</artifactId>
+    <version>${pbaInfo.pba.version}</version>
+    <description>${pbaInfo.pba.description}</description>
+    <name>${pbaInfo.pba.title?:pbaInfo.pba.name}</name>
+    <build>
+        <defaultGoal>validate</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.3</version>
+                <executions>
+                    <execution>
+                        <id>build-image</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <imageName>${pbaInfo.pba.name}</imageName>
+                    <baseImage>nginx</baseImage>
+                    <resources>
+                        <resource>
+                            <targetPath>/usr/share/nginx/html</targetPath>
+                            <directory>src/main/resources/static</directory>
+                            <include>index.html</include>
+                        </resource>
+                    </resources>
+                    <imageName>armdocker.rnd.ericsson.se/aia/aia-development-work-flow-demo</imageName>
+                    <forceTags>true</forceTags>
+                    <imageTags>
+                        <imageTag>\${project.version}</imageTag>
+                    </imageTags>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

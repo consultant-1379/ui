@@ -1,0 +1,18 @@
+{
+  "exports": {
+    "oss-bss-paas-lib/s/ApplicationService": "oss-bss-paas-lib/services/ApplicationService",
+    "oss-bss-paas-lib/s/ExtensionService": "oss-bss-paas-lib/services/ExtensionService",
+    "oss-bss-paas-lib/s/IntegrationService": "oss-bss-paas-lib/services/IntegrationService",
+    "oss-bss-paas-lib/s/TemplateService": "oss-bss-paas-lib/services/TemplateService",
+
+    "oss-bss-paas-lib/w/_GenericList": "oss-bss-paas-lib/widgets/base/generic-list/_GenericList",
+    "oss-bss-paas-lib/w/_GenericForm": "oss-bss-paas-lib/widgets/base/generic-form/_GenericForm",
+    "oss-bss-paas-lib/w/TemplateInfo": "oss-bss-paas-lib/widgets/template-info/TemplateInfo",
+    "oss-bss-paas-lib/w/ExtensionInfo": "oss-bss-paas-lib/widgets/extension-info/ExtensionInfo",
+    "oss-bss-paas-lib/w/IntegrationInfo": "oss-bss-paas-lib/widgets/integration-info/IntegrationInfo",
+
+    "oss-bss-paas-lib/e/extMiscUtils": "oss-bss-paas-lib/ext/extMiscUtils",
+    "oss-bss-paas-lib/e/extConstants": "oss-bss-paas-lib/ext/extConstants",
+    "oss-bss-paas-lib/e/extDom": "oss-bss-paas-lib/ext/extDom"
+  }
+}

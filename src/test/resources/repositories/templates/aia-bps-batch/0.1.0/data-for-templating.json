@@ -1,0 +1,12 @@
+{
+  "pbaInfo": {
+    "pba": {
+      "name": "aia-bps-batch",
+      "version": "0.1.8",
+      "description": "This template demonstrates how to process a batch of events coming on Kafka (or any other event distribution mechanism) using Apache Kafka.",
+      "portal": {
+        "title": "Batch Processing (Spark based)"
+      }
+    }
+  }
+}

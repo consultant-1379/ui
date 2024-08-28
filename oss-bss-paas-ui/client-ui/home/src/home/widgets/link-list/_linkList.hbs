@@ -1,0 +1,16 @@
+<nav class="eaHome-wLinkList">
+    <ul class="eaHome-wLinkList-list">
+        {{#each links}}
+            <li class="eaHome-wLinkList-listItem eaHome-wLinkList-listItem_{{this.bgColor}}">
+                <a class="eaHome-wLinkList-link" href="{{this.url}}">
+                    <div class="eaHome-wLinkList-listItemIcon">
+                        <i class="eaHome-icon {{icon}}"></i>
+                    </div>
+                    <div class="eaHome-wLinkList-listItemTitle ebEricssonFont">{{this.name}}</div>
+                    <p class="ebText ebColor_white">{{description}}</p>
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+</nav>
+<e-link src="./_linkList.less"/>

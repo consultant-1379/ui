@@ -1,0 +1,18 @@
+{
+  "mappings": [
+    {
+      "source": "/templates"
+    },
+    {
+      "source": "/extension_points"
+    },
+    {
+      "source": "/integration_points"
+    },
+    {
+      "source": "/applications"
+    }
+  ],
+  "host": "atrcxb2560-1.athtem.eei.ericsson.se",
+  "port": 5001
+}

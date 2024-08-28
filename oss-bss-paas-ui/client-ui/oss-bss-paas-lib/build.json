@@ -1,0 +1,28 @@
+{
+    "parent": "$(parentJson)/library.json",
+    "defaultPhase": "package",
+    "properties": {
+        "package": "oss-bss-paas-lib",
+        "name": "OssBssPaasLib",
+        "version": "1.0.0",
+        "skeleton": "2.1.2",
+        "skeletonType": "library"
+    },
+    "phases": {
+        "package": {
+            "depends": [
+                "clean",
+                "analyze",
+                "compile",
+                "compress"
+            ]
+        }
+    },
+    "dependencies": {
+        "assets": "1.7.5",
+        "jscore": "1.6.9",
+        "uit": "0.1.3",
+        "widgets": "1.6.26",
+        "i18n": "2.3.1"
+    }
+}

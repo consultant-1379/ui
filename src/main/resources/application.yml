@@ -1,0 +1,68 @@
+server.port: 8888
+management.context-path: /paas/v1/serviceability
+web.cdsv3.url: http://atrcxb2994.athtem.eei.ericsson.se:8889
+zuul:
+  routes:
+    paasv1:
+      path: /proxy/appmgr/v1/**
+      url: http://localhost:${server.port}
+    cdsv3-modify-portal-aia-data:
+      path: /portal-lib/1/services/aia-data.js
+      url: http://localhost:${server.port}/cdsv3
+    cdsv3-modify-aia-ecosystem-js:
+      path: /aia-ecosystem/AiaEcosystem.js
+      url: http://localhost:${server.port}/cdsv3
+    cdsv3-modify-aia-project-components:
+      path: /api/projects/1/components
+      url: http://localhost:${server.port}/cdsv3
+    cdsv3-homepage:
+      path: /
+      url: ${web.cdsv3.url}
+    cdsv3-configjs:
+      path: /config.js
+      url: ${web.cdsv3.url}
+    cdsv3-container:
+      path: /container/**
+      url: ${web.cdsv3.url}/container
+    cdsv3-aia:
+      path: /aia/**
+      url: ${web.cdsv3.url}/aia
+    cdsv3-api:
+      path: /api/**
+      url: ${web.cdsv3.url}/api
+    cdsv3-i18n:
+      path: /i18n/**
+      url: ${web.cdsv3.url}/i18n
+    cdsv3-jscore:
+      path: /jscore/**
+      url: ${web.cdsv3.url}/jscore
+    cdsv3-aia-ecosystem:
+      path: /aia-ecosystem/**
+      url: ${web.cdsv3.url}/aia-ecosystem
+    cdsv3-locales:
+      path: /locales/**
+      url: ${web.cdsv3.url}/locales
+    cdsv3-uit:
+      path: /uit/**
+      url: ${web.cdsv3.url}/uit
+    cdsv3-tablelib:
+      path: /tablelib/**
+      url: ${web.cdsv3.url}/tablelib
+    cdsv3-layouts:
+      path: /layouts/**
+      url: ${web.cdsv3.url}/layouts
+    cdsv3-widgets:
+      path: /widgets/**
+      url: ${web.cdsv3.url}/widgets
+    cdsv3-dashboard:
+      path: /dashboard/**
+      url: ${web.cdsv3.url}/dashboard
+    cdsv3-portal:
+      path: /portal/**
+      url: ${web.cdsv3.url}/portal
+    cdsv3-assets:
+      path: /assets/**
+      url: ${web.cdsv3.url}/assets
+    cdsv3-portal-lib:
+      path: /portal-lib/**
+      url: ${web.cdsv3.url}/portal-lib

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello world app to run on AIA platform</title>
+</head>
+<body>
+<h1>Hello world app to run on AIA platform</h1>
+<h3>Sample Build Commands</h3>
+<pre>
+# step 1: build locally
+mvn
+
+# step 2: run docker image locally (ctrl+c to stop)
+docker run -it --rm armdocker.rnd.ericsson.se/aia/aia-development-work-flow-demo:0.11.6
+
+# step 3: publish to docker repository
+docker push armdocker.rnd.ericsson.se/aia/aia-development-work-flow-demo:0.11.6
+
+# step 4: deploy to paas platform
+./bin/deploy_app.sh
+
+# step 5: undeploy the app
+./bin/undeploy_app.sh
+
+# step 6: publish back to app manager
+./bin/publish_app.sh
+
+# step 7: unpublish from app manager
+./bin/unpublish_app.sh
+
+</pre>
+</body>
+</html>

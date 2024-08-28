@@ -1,0 +1,9 @@
+#!/bin/bash
+
+IP=\$(ip -o -4 addr list eth0 | perl -n -e 'if (m{inet\\s([\\d\\.]+)\\/\\d+\\s}xms) { print \$1 }')
+echo "SPARK_MASTER_IP=\$SPARK_MASTER"
+
+# Avoid the default Docker behavior of mapping our IP address to an unreachable host name
+#sudo umount /etc/hosts
+
+/opt/spark/bin/spark-submit  --class com.ericsson.aia.asr.correlations.ups.UserPlaneCorrelation_MR  --master spark://159.107.166.254:7077 --deploy-mode cluster  --executor-memory 2G --total-executor-cores 2  /asr/uber-aia-ref-app-radio-ups-1.0.jar  localhost:2181  upsGroupp dataIn mesos-url  tachyon-url kafka-url

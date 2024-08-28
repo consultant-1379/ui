@@ -1,0 +1,253 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.ericsson.aia.apps</groupId>
+		<artifactId>${pbaInfo.pba.name}</artifactId>
+		<version>${pbaInfo.pba.version}</version>
+	</parent>
+
+	<artifactId>asr-base-service-extension-point</artifactId>
+	<packaging>jar</packaging>
+
+	<url></url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<akka.group>org.spark-project.akka</akka.group>
+		<akka.version>2.3.4-spark</akka.version>
+		<akka.version>2.3.4-spark</akka.version>
+		<java.version>1.8</java.version>
+		<mesos.version>0.21.1</mesos.version>
+		<slf4j.version>1.7.10</slf4j.version>
+		<log4j.version>1.2.17</log4j.version>
+		<hadoop.version>2.6.0</hadoop.version>
+		<protobuf.version>2.5.0</protobuf.version>
+		<yarn.version>\${hadoop.version}</yarn.version>
+		<zookeeper.version>3.4.6</zookeeper.version>
+		<curator.version>2.4.0</curator.version>
+		<hive.group>org.spark-project.hive</hive.group>
+		<!-- Version used in Maven Hive dependency -->
+		<hive.version>0.13.1a</hive.version>
+		<!-- Version used for internal directory structure -->
+		<hive.version.short>0.13.1</hive.version.short>
+		<avro.version>1.7.7</avro.version>
+		<avro.mapred.classifier>hadoop2</avro.mapred.classifier>
+		<jets3t.version>0.7.1</jets3t.version>
+		<scala.binary.version>2.10</scala.binary.version>
+		<scala.version>2.10.6</scala.version>
+		<spark.version>1.6.0</spark.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			
+			<artifactId>spark-streaming-kafka_2.10</artifactId>
+			<version>\${spark.version}</version>
+			
+		</dependency>
+		<!-- <dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>2.10.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>2.10.6</version>
+		</dependency>
+		
+		 
+		<dependency>
+	      <groupId>org.scala-lang</groupId>
+	      <artifactId>scala-library</artifactId>
+	      <version>2.11.6</version>
+	      <scope>provided</scope>
+	    </dependency>
+	   -->
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-core_\${scala.binary.version}</artifactId>
+			<version>\${spark.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-streaming_\${scala.binary.version}</artifactId>
+			<version>\${spark.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId> spark-mllib_\${scala.binary.version}</artifactId>
+			<version>\${spark.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.spark</groupId>
+			<artifactId>spark-sql_\${scala.binary.version}</artifactId>
+			<version>\${spark.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>18.0</version>
+		</dependency>
+		<dependency>
+			<!--<groupId>com.ericsson.aia.common.avro</groupId>-->
+			<groupId>com.ericsson.aia.tmp</groupId>
+			<artifactId>kafka-avro-decoder</artifactId>
+			<version>0.0.2</version>
+		</dependency>
+		<dependency>
+			<!--<groupId>com.ericsson.aia.common.avro</groupId>-->
+			<groupId>com.ericsson.aia.tmp</groupId>
+			<artifactId>avro-common</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+
+		<dependency>
+			<!--<groupId>com.ericsson.aia.model</groupId>-->
+			<groupId>com.ericsson.aia.tmp</groupId>
+			<artifactId>pojo</artifactId>
+			<version>0.0.3</version>
+		</dependency>
+		<dependency>
+			<!--<groupId>com.ericsson.aia.model</groupId>-->
+			<groupId>com.ericsson.aia.tmp</groupId>
+			<artifactId>base</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		
+ 
+		<dependency>
+		    <groupId>com.databricks</groupId>
+		    <artifactId>spark-avro_2.10</artifactId>
+		    <version>2.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<defaultGoal>install</defaultGoal>
+	 <outputDirectory>\${project.build.directory}/classes</outputDirectory>
+		<plugins>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<compilerArguments>
+						<d>\${project.build.directory}/classes</d>
+					</compilerArguments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.4.3</version>
+
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<finalName>uber-aia-ref-app-radio-ups-1.0</finalName>
+					<artifactSet>
+						<includes>
+							<include>*:*</include>
+						</includes>
+					</artifactSet>
+					<filters>
+						<filter>
+							<artifact>*:*</artifact>
+							<excludes>
+								<exclude>META-INF/*.SF</exclude>
+								<exclude>META-INF/*.DSA</exclude>
+								<exclude>META-INF/*.RSA</exclude>
+							</excludes>
+						</filter>
+					</filters>
+					<transformers>
+						<transformer
+							implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+							<manifestEntries>
+								<Main-Class>com.ericsson.aia.asr.correlations.rab.RABSessionCorrelation_SQL</Main-Class>
+								<Build-Number>124</Build-Number>
+							</manifestEntries>
+						</transformer>
+						<transformer
+							implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+						<transformer
+							implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+							<resource>reference.conf</resource>
+						</transformer>
+						<transformer
+							implementation="org.apache.maven.plugins.shade.resource.DontIncludeResourceTransformer">
+							<resource>log4j.properties</resource>
+						</transformer>
+					</transformers>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.4.3</version>
+				<executions>
+					<execution>
+						<id>build-image</id>
+						<phase>install</phase>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<imageName></imageName>
+					<baseImage>armdocker.rnd.ericsson.se/aia/demo/sparkbase</baseImage>
+					<entryPoint>["sh","/default_cmd"]</entryPoint>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>\${basedir}/src/main/resources</directory>
+							<include>config.properties</include>
+						</resource>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>\${basedir}/src/main/resources</directory>
+							<include>default_cmd</include>
+						</resource>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>\${basedir}/target</directory>
+							<include>uber-aia-ref-app-radio-ups-1.0.jar</include>
+						</resource>
+					</resources>
+					<imageName>armdocker.rnd.ericsson.se/aia/aia-asr-correlation-ups</imageName>
+					<forceTags>true</forceTags>
+					<imageTags>
+						<imageTag>\${project.version}</imageTag>
+					</imageTags>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+</project>

@@ -1,0 +1,142 @@
+{
+  "pba": {
+    "name": "platform-service-kafka",
+    "version": "0.0.4",
+    "description": "Kafka",
+    "dependencies":{
+      "zookeeper":{
+        "name":"platform-service-zookeeper",
+        "version": "0.0.2"
+      }
+    },
+    "deployments": {
+      "kafka": {
+        "id": "/platform-service-kafka",
+        "uris": [
+          "file:///root/docker.tar.gz"
+        ],
+        "instances": 1,
+        "cpus": 1,
+        "mem": 512,
+        "env": {
+          "JMX_PORT": "27203",
+          "KAFKA_PORT": "29092",
+          "KAFKA_ADVERTISED_PORT": "29092",
+          "KAFKA_ADVERTISED_HOST_NAME": "10.59.132.197",
+          "ZOOKEEPER_CONNECTION_STRING": "${pba.dependencies.zookeeper.apps.zookeeper.endpoints[0]}"
+        },
+        "container": {
+          "type": "DOCKER",
+          "docker": {
+            "image": "ches/kafka:0.9.0.1",
+            "network": "BRIDGE",
+            "forcePullImage": true,
+            "portMappings": [
+              {
+                "containerPort": 29092,
+                "hostPort": 29092,
+                "protocol": "tcp",
+                "servicePort": 29092
+              },
+              {
+                "containerPort": 27203,
+                "hostPort": 27203,
+                "protocol": "tcp",
+                "servicePort": 27203
+              }
+            ],
+            "privileged": true
+          }
+        }
+      },
+      "schemaRegistry": {
+        "id": "/platform-service-kafka-schema-registry",
+        "uris": [
+          "file:///root/docker.tar.gz"
+        ],
+        "instances": 1,
+        "cpus": 1,
+        "mem": 512,
+        "env": {
+          "SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL": "${pba.dependencies.zookeeper.apps.zookeeper.endpoints[0]}"
+        },
+        "container": {
+          "type": "DOCKER",
+          "docker": {
+            "image": "confluent/schema-registry:2.0.1",
+            "network": "BRIDGE",
+            "forcePullImage": true,
+            "portMappings": [
+              {
+                "containerPort": 8081,
+                "hostPort": 28081,
+                "protocol": "tcp",
+                "servicePort": 28081
+              }
+            ],
+            "privileged": true
+          }
+        }
+      },
+      "manager": {
+        "id": "/platform-service-kafka-manager",
+        "uris": [
+          "file:///root/docker.tar.gz"
+        ],
+        "instances": 1,
+        "cpus": 1,
+        "mem": 512,
+        "env": {
+          "ZK_HOSTS": "${pba.dependencies.zookeeper.apps.zookeeper.endpoints[0]}"
+        },
+        "container": {
+          "type": "DOCKER",
+          "docker": {
+            "image": "sheepkiller/kafka-manager:1.3.0.8",
+            "network": "BRIDGE",
+            "forcePullImage": true,
+            "portMappings": [
+              {
+                "containerPort": 9000,
+                "hostPort": 29000,
+                "protocol": "tcp",
+                "servicePort": 29000
+              }
+            ],
+            "privileged": true
+          }
+        }
+      },
+      "kafkaRest": {
+        "id": "/platform-service-kafka-rest",
+        "uris": [
+          "file:///root/docker.tar.gz"
+        ],
+        "instances": 1,
+        "cpus": 1,
+        "mem": 512,
+        "env": {
+          "KAFKA_REST_SCHEMA_REGISTRY_URL": "http://${pba.deployments.schemaRegistry.app.endpoints[0]}",
+          "KAFKA_REST_ZOOKEEPER_CONNECT": "${pba.dependencies.zookeeper.apps.zookeeper.endpoints[0]}"
+        },
+        "container": {
+          "type": "DOCKER",
+          "docker": {
+            "image": "confluent/rest-proxy:2.0.1",
+            "network": "BRIDGE",
+            "forcePullImage": true,
+            "portMappings": [
+              {
+                "containerPort": 8082,
+                "hostPort": 0,
+                "protocol": "tcp",
+                "servicePort": 0
+              }
+            ],
+            "privileged": true
+          }
+        }
+      }
+    }
+  }
+}

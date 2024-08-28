@@ -1,0 +1,36 @@
+@itemClass: eaCreateApp-wExtensionIntegrationList-item;
+
+.eaCreateApp-wExtensionIntegrationList {
+
+    &-item {
+        margin: 15px 0;
+
+        &:first-of-type{
+            margin-top: 0;
+        }
+
+        &Header {
+            display: block;
+            padding: 4px;
+            font-size: 0;
+
+            .@{itemClass}Name {
+                display: inline-block;
+                // remove width for icons
+                max-width: calc(~'100% - 65px');
+                padding-right: 6px;
+                box-sizing: border-box;
+                vertical-align: middle;
+
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                font-size: 1.2rem;
+            }
+        }
+
+        &Body {
+            padding: 4px 0 0 25px;
+        }
+    }
+}

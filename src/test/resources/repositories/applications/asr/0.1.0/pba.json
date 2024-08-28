@@ -1,0 +1,136 @@
+{
+  "pba": {
+    "name": "asr",
+    "version": "0.1.2",
+    "portal": {
+      "title": "Network Analytics Session Record (ASR)",
+      "description": "Status of Radio/Core correlations",
+      "downloads": [
+        {
+          "title": "0.1.0",
+          "link": "/portal/resources/portal/widgets/wow-banner/asr.zip"
+        }
+      ]
+    },
+    "extensions": {
+      "only-contain-integration-points": {
+        "name": "only-contain-integration-points",
+        "version": "0.1.0",
+        "integration_points": {
+          "lte-call-drop": {
+            "name": "lte-call-drop",
+            "version": "0.1.0",
+            "portal": {
+              "title": "LTE CALL DROP",
+              "description": "LTE Call session drop",
+              "availableInAndSchema": [
+                {
+                  "title": "tachyon:/CONTEXT_RELEASE",
+                  "link": "/download/avro_schemas/correlation.v1.v1/CONTEXT_RELEASE.avsc"
+                }
+              ]
+            }
+          },
+          "lte-initial-attach": {
+            "name": "lte-initial-attach",
+            "version": "0.1.0",
+            "portal": {
+              "title": "LTE INITIAL ATTACH",
+              "description": "UE initial registration with network",
+              "availableInAndSchema": [
+                {
+                  "title": "tachyon:/INITIAL_ATTACH",
+                  "link": "/download/avro_schemas/correlation.v1.v1/INITIAL_ATTACH.avsc"
+                }
+              ]
+            }
+          },
+          "lte-bearer-session": {
+            "name": "lte-bearer-session",
+            "version": "0.1.0",
+            "portal": {
+              "title": "LTE BEARER SESSION",
+              "description": "LTE default and dedicated brearer session",
+              "availableInAndSchema": [
+                {
+                  "title": "tachyon:/LTE_ERAB_SESSION",
+                  "link": "/download/avro_schemas/correlation.v1.v1/LTE_ERAB_SESSION.avsc"
+                }
+              ]
+            }
+          },
+          "lte-radio-user-session": {
+            "name": "lte-radio-user-session",
+            "version": "0.1.0",
+            "portal": {
+              "title": "LTE RADIO USER SESSION",
+              "description": "LTE UE session performance information",
+              "availableInAndSchema": [
+                {
+                  "title": "tachyon:/LTE_USER_SESSION",
+                  "link": "/download/avro_schemas/correlation.v1.v1/LTE_USER_SESSION.avsc"
+                }
+              ]
+            }
+          },
+          "lte-paging": {
+            "name": "lte-paging",
+            "version": "0.1.0",
+            "portal": {
+              "title": "LTE PAGING",
+              "description": "LTE Paging Procedure tracking",
+              "availableInAndSchema": [
+                {
+                  "title": "tachyon:/NET_TG_SERVICE_REQUEST_CORR",
+                  "link": "/download/avro_schemas/correlation.v1.v1/NET_TG_SERVICE_REQUEST_CORR.avsc"
+                }
+              ]
+            }
+          },
+          "lte-service-request": {
+            "name": "lte-service-request",
+            "version": "0.1.0",
+            "portal": {
+              "title": "LTE SERVICE REQUEST",
+              "description": "LTE UE Service Request Procedure correlation",
+              "availableInAndSchema": [
+                {
+                  "title": "tachyon:/SERVICE_REQUEST_CORR",
+                  "link": "/download/avro_schemas/correlation.v1.v1/SERVICE_REQUEST_CORR.avsc"
+                }
+              ]
+            }
+          },
+          "lte-s1-handover": {
+            "name": "lte-s1-handover",
+            "version": "0.1.0",
+            "portal": {
+              "title": "LTE S1 HANDOVER",
+              "description": "LTE S1 Handover Procedure Correlation",
+              "availableInAndSchema": [
+                {
+                  "title": "tachyon:/S1_HANDOVER",
+                  "link": "/download/avro_schemas/correlation.v1.v1/S1_HANDOVER.avsc"
+                }
+              ]
+            }
+          },
+          "lte-x2-handover": {
+            "name": "lte-x2-handover",
+            "version": "0.1.0",
+            "portal": {
+              "title": "LTE X2 HANDOVER",
+              "description": "LTE X2/INTRA-FREQ Handover Procedure Correlation",
+              "availableInAndSchema": [
+                {
+                  "title": "tachyon:/X2_HANDOVER",
+                  "link": "/download/avro_schemas/correlation.v1.v1/X2_HANDOVER.avsc"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

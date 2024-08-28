@@ -1,0 +1,35 @@
+{
+  "pba": {
+    "name": "${pbaInfo.pba.name}",
+    "version": "${pbaInfo.pba.version}",
+    "description": "${pbaInfo.pba.description}",
+    "service": [
+      {
+        "name": "test-service",
+        "container_port": 80,
+        "service_port": 0
+      }
+    ],
+    "portal": {
+      "title": "${pbaInfo.pba.title?:pbaInfo.pba.name}",
+      "order": 1,
+      "description": "${pbaInfo.pba.description}",
+      "downloads": [
+        {
+          "title": "${pbaInfo.pba.version}",
+          "link": "/paas/v1/repositories/applications/${pbaInfo.pba.name}/${pbaInfo.pba.version}/files/pba.json?forceDownload=true"
+        }
+      ]
+    },
+    "extensions": {
+    }
+  },
+  "image": [
+    {
+      "image_id": "armdocker.rnd.ericsson.se/aia/aia-${pbaInfo.pba.name}:${pbaInfo.pba.version}",
+      "image_name": "${pbaInfo.pba.name}",
+      "image_version": "${pbaInfo.pba.version}",
+      "image_type": "container"
+    }
+  ]
+}

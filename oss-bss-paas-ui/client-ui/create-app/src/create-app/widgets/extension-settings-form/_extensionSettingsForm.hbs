@@ -1,0 +1,64 @@
+<div class="eaCreateApp-wExtensionSettingsForm">
+    <form class="ebForm" e-id="form">
+        <div class="ebForm-block eb_wMargin">
+            <label class="ebLabel eaCreateApp-formLabel">
+                <span class="ebLabel-text eaCreateApp-formLabelText">Description</span>
+                <span class="ebLabel-field eaCreateApp-formField">
+                    <textarea class="ebTextArea ebTextArea_width_full" e-id="description"></textarea>
+                </span>
+            </label>
+        </div>
+        <div class="ebForm-block eb_wMargin">
+            <label class="ebLabel eaCreateApp-formLabel">
+                <span class="ebLabel-text eaCreateApp-formLabelText">Min Instance(s)</span>
+                <span class="ebLabel-field eaCreateApp-formField">
+                    <e-element src="widgets/Spinner" e-id="minInstances" e-options="minInstanceOptions"/>
+                </span>
+            </label>
+        </div>
+        <div class="ebForm-block eb_wMargin">
+            <label class="ebLabel eaCreateApp-formLabel">
+                <span class="ebLabel-text eaCreateApp-formLabelText">Max Instance(s)</span>
+                <span class="ebLabel-field eaCreateApp-formField">
+                    <e-element src="widgets/Spinner" e-id="maxInstances" e-options="maxInstanceOptions"/>
+                </span>
+            </label>
+        </div>
+        <div class="ebForm-block eb_wMargin">
+            <label class="ebLabel eaCreateApp-formLabel">
+                <span class="ebLabel-text eaCreateApp-formLabelText">CPU</span>
+                <span class="ebLabel-field eaCreateApp-formField">
+                    <e-element src="widgets/Spinner" e-id="cpu" e-options="cpuOptions"/>
+                </span>
+            </label>
+        </div>
+        <div class="ebForm-block eb_wMargin">
+            <label class="ebLabel eaCreateApp-formLabel">
+                <span class="ebLabel-text eaCreateApp-formLabelText">Memory (Mb)</span>
+                <span class="ebLabel-field eaCreateApp-formField">
+                    <span class="eaCreateApp-aligned">
+                        <e-element src="widgets/Spinner" e-id="memorySize" e-options="memorySizeOptions"/>
+                    </span>
+                    <span class="eaCreateApp-aligned">
+                        <e-element src="widgets/SelectBox" e-id="memoryUnit" e-options="memoryUnitOptions"/>
+                    </span>
+                </span>
+            </label>
+        </div>
+        {{#if actions}}
+            <div class="ebForm-block eb_wMargin">
+                <label class="ebLabel eaCreateApp-formLabel">
+                    <span class="ebLabel-text"></span>
+                    <span class="ebLabel-field">
+                        {{#if actions.submit}}
+                            <button class="ebBtn ebBtn_color_darkBlue" type="button" e-id="submit">{{actions.submit.label}}</button>
+                        {{/if}}
+                        {{#if actions.cancel}}
+                            <button class="ebBtn ebBtn_small eb_wMargin" type="button" e-id="cancel">{{actions.cancel.label}}</button>
+                        {{/if}}
+                    </span>
+                </label>
+            </div>
+        {{/if}}
+    </form>
+</div>

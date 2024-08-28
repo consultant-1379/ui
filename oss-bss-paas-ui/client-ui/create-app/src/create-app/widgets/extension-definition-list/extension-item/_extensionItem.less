@@ -1,0 +1,45 @@
+@itemClass: eaCreateApp-wExtensionList-item;
+
+.eaCreateApp-wExtensionList {
+
+    &-item {
+        margin: 16px 2px;
+
+        &:first-of-type {
+            margin-top: 0;
+        }
+
+        &Header,
+        &Form {
+            display: block;
+            padding: 0 0 4px;
+        }
+
+        &Switch,
+        &Name,
+        &InfoIcon,
+        &SettingsIcon {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        &Name {
+            box-sizing: border-box;
+            width: calc(~'100% - 100px');
+            white-space: nowrap;
+
+            font-weight: bold;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &InfoIcon {
+            margin: 0 4px;
+        }
+
+        &SettingsIcon_disabled {
+            pointer-events: none;
+        }
+
+    }
+}

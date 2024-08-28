@@ -1,0 +1,43 @@
+<div class="eaCreateApp-wBasicInfoForm">
+    <form class="ebForm" e-id="form">
+        <div class="ebForm-block eb_wMargin">
+            <label class="ebLabel eaCreateApp-formLabel">
+                <span class="ebLabel-text eaCreateApp-formLabelText ebLabel-text_required">Name</span>
+                <span class="ebLabel-field eaCreateApp-formField">
+                    <input class="ebInput ebInput_width_full" e-id="name"/>
+                </span>
+            </label>
+        </div>
+        <div class="ebForm-block eb_wMargin">
+            <label class="ebLabel eaCreateApp-formLabel">
+                <span class="ebLabel-text eaCreateApp-formLabelText ebLabel-text_required">Version</span>
+                <span class="ebLabel-field eaCreateApp-formField">
+                    <input class="ebInput ebInput_width_small" e-id="version"/>
+                </span>
+            </label>
+        </div>
+        <div class="ebForm-block eb_wMargin">
+            <label class="ebLabel eaCreateApp-formLabel">
+                <span class="ebLabel-text eaCreateApp-formLabelText ebLabel-text_required">Description</span>
+                <span class="ebLabel-field eaCreateApp-formField">
+                    <textarea class="ebTextArea ebTextArea_width_full" e-id="description"></textarea>
+                </span>
+            </label>
+        </div>
+        {{#if actions}}
+            <div class="ebForm-block eb_wMargin">
+                <label class="ebLabel eaCreateApp-formLabel">
+                    <span class="ebLabel-text"></span>
+                    <span class="ebLabel-field">
+                        {{#if actions.submit}}
+                            <button class="ebBtn ebBtn_color_darkBlue" type="button" e-id="submit">{{actions.submit.label}}</button>
+                        {{/if}}
+                        {{#if actions.cancel}}
+                            <button class="ebBtn ebBtn_small eb_wMargin" type="button" e-id="cancel">{{actions.cancel.label}}</button>
+                        {{/if}}
+                    </span>
+                </label>
+            </div>
+        {{/if}}
+    </form>
+</div>

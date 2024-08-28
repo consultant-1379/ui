@@ -1,0 +1,98 @@
+@appClass: eaCreateApp;
+@layoutClass: eaCreateApp-layout;
+
+.eaCreateApp {
+
+    //-------------------------------------
+
+    @screen-sd_768: 768px;
+    @screen-md_992: 992px;
+    @screen-mld_1024: 1024px;
+    @screen-ld_1280: 1280px;
+
+    //-------------------------------------
+
+    height: 100%;
+
+    &-icon {
+        &_plus_white {
+            background-image: url('@{resources-url}/create-app/icons/plus_white.svg');
+        }
+    }
+
+    &-layout {
+        &-item {
+            display: inline-block;
+            vertical-align: top;
+            font-size: 1.2rem;
+            box-sizing: border-box;
+        }
+
+        &_5050 {
+            font-size: 0;
+
+            & > .@{layoutClass}-item {
+                width: 50%;
+            }
+        }
+        &_6040 {
+            font-size: 0;
+
+            & > .@{layoutClass}-item {
+                width: 40%;
+
+                &:first-of-type {
+                    width: 60%;
+                }
+            }
+        }
+        &_7030 {
+            font-size: 0;
+
+            & > .@{layoutClass}-item {
+                width: 30%;
+
+                &:first-of-type {
+                    width: 70%;
+                }
+            }
+        }
+        &_3070 {
+            font-size: 0;
+
+            & > .@{layoutClass}-item {
+                width: 70%;
+
+                &:first-of-type {
+                    width: 30%;
+                }
+            }
+        }
+    }
+
+    &-form {
+        &Label {
+            display: block;
+            font-size: 0;
+
+            &Text {
+                font-size: 1.2rem;
+            }
+        }
+        &Field {
+            display: block;
+        }
+
+        @media (min-width: @screen-md_992) {
+            &Field {
+                display: inline-block;
+                width: calc(~'100% - 140px');
+            }
+        }
+    }
+
+    &-aligned {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}

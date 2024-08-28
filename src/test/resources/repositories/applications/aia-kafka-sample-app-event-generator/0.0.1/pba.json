@@ -1,0 +1,42 @@
+{
+  "pba": {
+    "name": "aia-kafka-sample-app-event-generator",
+    "version": "0.0.4",
+    "description": "Kafka Sample Event Generator",
+    "dependencies":{
+      "zookeeper":{
+        "name":"platform-service-zookeeper",
+        "version": "latest"
+      },
+      "kafka":{
+        "name":"platform-service-kafka",
+        "version": "latest"
+      }
+    },
+    "deployments": {
+      "eventGenerator": {
+        "id": "/aia-kafka-sample-app-event-generator",
+        "uris": [
+          "file:///root/docker.tar.gz"
+        ],
+        "instances": 1,
+        "cpus": 1,
+        "mem": 512,
+        "env": {
+          "SPRING_PROFILES_ACTIVE": "eventgenerator",
+          "ZOOKEEPER_ENDPOINT": "${pba.dependencies.zookeeper.apps.zookeeper.endpoints[0]}",
+          "KAFKA_ENDPOINT": "${pba.dependencies.kafka.apps.kafka.endpoints[0]}"
+        },
+        "container": {
+          "type": "DOCKER",
+          "docker": {
+            "image": "armdocker.rnd.ericsson.se/aia/aia-kafka-sample-app:0.0.1",
+            "network": "BRIDGE",
+            "forcePullImage": true,
+            "privileged": true
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.ericsson.aia.apps</groupId>
+		<artifactId>${pbaInfo.pba.name}</artifactId>
+		<version>${pbaInfo.pba.version}</version>
+	</parent>
+	<packaging>pom</packaging>
+
+	<artifactId>batch-processing-service</artifactId>
+
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.4.3</version>
+				<executions>
+					<execution>
+						<id>build-image</id>
+						<phase>install</phase>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<imageName></imageName>
+					<baseImage>armdocker.rnd.ericsson.se/aia/bps-engine-base:0.0.1</baseImage>
+					<entryPoint>["sh","/default_cmd"]</entryPoint>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>\${basedir}/src/main/resources</directory>
+							<include>default_cmd</include>
+						</resource>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>\${basedir}/src/main/resources</directory>
+							<include>flow.xml</include>
+						</resource>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>\${basedir}/src/main/resources</directory>
+							<include>config.properties</include>
+						</resource>
+					</resources>
+					<imageName>armdocker.rnd.ericsson.se/aia/aia-${pbaInfo.pba.name}</imageName>
+					<forceTags>true</forceTags>
+					<imageTags>
+						<imageTag>\${project.version}</imageTag>
+					</imageTags>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+</project>

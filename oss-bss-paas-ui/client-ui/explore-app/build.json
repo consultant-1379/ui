@@ -1,0 +1,29 @@
+{
+    "parent": "$(parentJson)/app.json",
+    "defaultPhase": "package",
+    "properties": {
+        "package": "explore-app",
+        "name": "ExploreApp",
+        "version": "1.0.0",
+        "skeleton": "2.1.2",
+        "skeletonType": "app"
+    },
+    "phases": {
+        "package": {
+            "depends": [
+                "clean",
+                "analyze",
+                "compile",
+                "compress"
+            ]
+        }
+    },
+    "dependencies": {
+        "jscore": "1.5.7",
+        "widgets": "1.6.12",
+        "assets": "1.6.7",
+        "container": "1.10.3",
+        "i18n": "2.3.0",
+        "layouts": "1.4.14"
+    }
+}

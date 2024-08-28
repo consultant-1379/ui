@@ -1,0 +1,10 @@
+{
+	"pbaInfo": {
+		"pba": {
+			"id": "urn:uuid:39d97ac0-7e47-11e5-a432-0002a5d57777",
+			"name": "aia-asr",
+			"version": "0.1.0",
+			"description":"ASR reference implementation"
+		}
+	}
+}

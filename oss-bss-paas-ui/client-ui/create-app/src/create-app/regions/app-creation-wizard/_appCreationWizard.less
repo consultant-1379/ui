@@ -1,0 +1,69 @@
+@wizardClass: eaCreateApp-rAppCreationWizard;
+
+.eaCreateApp {
+
+    //-------------------------------------
+
+    @screen-sd_768: 768px;
+    @screen-md_991: 991px;
+    @screen-md_992: 992px;
+    @screen-mld_1024: 1024px;
+    @screen-ld_1280: 1280px;
+
+    //-------------------------------------
+
+    .@{wizardClass} {
+
+        height: 100%;
+
+        &-formTitle {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        &-step {
+            &ExtensionDefinition,
+            &IntegrationDefinition,
+            &DependenciesDefinition {
+                padding-top: 15px;
+                box-sizing: border-box;
+            }
+
+            &DependenciesDefinition {
+                height: 350px;
+
+                .@{wizardClass} {
+                    &-extensionDependency,
+                    &-extensionList,
+                    &-dependencySection {
+                    }
+
+                    @media (max-width: @screen-md_991) {
+                        &-extensionList,
+                        &-dependencySection {
+                            width: 100%;
+                            display: block;
+                        }
+                    }
+                    @media (min-width: @screen-md_992) {
+                        &-extensionList,
+                        &-dependencySection {
+                            height: 100%;
+                            max-height: 100%;
+                        }
+                    }
+
+                    &-dependencyTable {
+                        height: calc(~'100% - 50px');
+                        max-height: calc(~'100% - 50px');
+                    }
+                }
+            }
+
+            @media (min-width: @screen-md_992) {
+                //width: 75%;
+            }
+        }
+    }
+}

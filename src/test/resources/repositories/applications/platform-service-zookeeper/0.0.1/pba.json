@@ -1,0 +1,35 @@
+{
+  "pba": {
+    "name": "platform-service-zookeeper",
+    "version": "0.0.2",
+    "description": "Zookeeper",
+    "deployments": {
+      "zookeeper": {
+        "id": "/platform-service-zookeeper",
+        "uris": [
+          "file:///root/docker.tar.gz"
+        ],
+        "instances": 1,
+        "cpus": 1,
+        "mem": 512,
+        "container": {
+          "type": "DOCKER",
+          "docker": {
+            "image": "jplock/zookeeper",
+            "network": "BRIDGE",
+            "forcePullImage": true,
+            "portMappings": [
+              {
+                "containerPort": 2181,
+                "hostPort": 22181,
+                "protocol": "tcp",
+                "servicePort": 22181
+              }
+            ],
+            "privileged": true
+          }
+        }
+      }
+    }
+  }
+}

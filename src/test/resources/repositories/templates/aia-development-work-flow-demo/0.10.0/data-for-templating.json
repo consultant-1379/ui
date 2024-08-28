@@ -1,0 +1,12 @@
+{
+  "pbaInfo": {
+    "pba": {
+      "name": "aia-development-work-flow-demo",
+      "version": "0.11.10",
+      "description": "Hello world app to run on AIA platform",
+      "portal": {
+        "title": "AIA Development Work Flow Demo"
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="urn:com:ericsson:schema:xml:oss:fbp_flow" xmlns:oc="urn:com:ericsson:schema:xml:oss:oss_common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oc:ns="com.ericsson.oss.services"
+				oc:name="CSLSolutionSet" oc:version="1.0.0">
+
+	<oc:modelCreationInfo author="eachsaj" creationDate="25/5/2016">
+		<oc:designedModel componentId="BatchProcessingSpark" />
+	</oc:modelCreationInfo>
+
+	<oc:desc>ExtEps Test for an extension Simple Batch Processing</oc:desc>
+
+	<input name="file-stream-csv">
+		<attribute name="uri" value="file://home/eachsaj/Downloads/SalesJan2009.csv"/>
+		<attribute name="header" value="true"/><!-- if this false define schema in json format and use the option -Dheader on deployment -->
+		<attribute name ="inferSchema" value="true"/>
+		<attribute name ="drop-malformed" value="true"/>
+		<attribute name ="dateFormat" value="SimpleDateFormat"/>
+		<attribute name ="skip-comments" value="true"/>
+		<attribute name ="quote" value="&quot;"/>
+		<attribute name="persist" value="true"/>"<!-- If this enabled the data will be materialized , otherwise will dropped after finishing job -->
+		<attribute name="table-name" value="Sales"/>
+	</input>
+
+
+
+
+	<output name="file-out-put">
+		<attribute name="uri" value="file:///tmp/Sales3"/>
+		<!-- If this enabled the data will not materialized  -->
+		<attribute name="data.format" value="json"/><!-- json,text,orc,parquet -->
+		<attribute name="partition.columns" value="Payment_Type"/>
+
+
+	</output>
+
+
+	<step name="sales-analysis">
+		<attribute name="uri" value="spark-batch://sales-analysis"/><!-- application name isa tac-enrich-Radio-User-Session -->
+
+		<attribute name="master.url" value="local[*]"/>
+		<!-- attribute name="driver-class" value="com.ericsson.aia.bps.streaming.correlations.TACENRICHApp" /!-->
+		<attribute name="sql" value="select Payment_Type, Name,  Latitude,Longitude from Sales where Price>3000" />
+		<attribute name="spark.externalBlockStore.url" value="tachyon://localhost:19998"/>
+		<attribute name="spark.externalBlockStore.baseDir" value="tachyon://localhost:19998/staging/example/"/>
+
+	</step>
+
+
+
+
+	<path >
+		<from uri="file-stream-casv" />
+		<to uri="sales-analysis" />
+		<to uri="sales-analysis" />
+	</path>
+
+
+
+</FlowDefinition>

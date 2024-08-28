@@ -1,0 +1,30 @@
+{
+    "parent": "$(parentJson)/app.json",
+    "defaultPhase": "package",
+    "properties": {
+        "package": "create-app",
+        "name": "CreateApp",
+        "version": "1.0.0",
+        "skeleton": "2.1.2",
+        "skeletonType": "app"
+    },
+    "phases": {
+        "package": {
+            "depends": [
+                "clean",
+                "analyze",
+                "compile",
+                "compress"
+            ]
+        }
+    },
+    "dependencies": {
+        "jscore": "1.5.1",
+        "widgets": "1.5.8",
+        "assets": "1.5.0",
+        "container": "1.10.3",
+        "i18n": "2.3.0",
+        "layouts": "1.4.14",
+        "tablelib": "0.8.11"
+    }
+}

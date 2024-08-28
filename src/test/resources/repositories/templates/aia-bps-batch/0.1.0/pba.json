@@ -1,0 +1,79 @@
+{
+  "pba": {
+    "name": "${pbaInfo.pba.name}",
+    "version": "${pbaInfo.pba.version}",
+    "description": "${pbaInfo.pba.description}",
+    "service": [
+      {
+        "name": "test-service",
+        "container_port": 80,
+        "service_port": 0
+      }
+    ],
+    "portal": {
+      "title": "${pbaInfo.pba.title?:pbaInfo.pba.name}",
+      "order": 1,
+      "description": "${pbaInfo.pba.description}",
+      "downloads": [
+        {
+          "title": "${pbaInfo.pba.version}",
+          "link": "/paas/v1/repositories/applications/${pbaInfo.pba.name}/${pbaInfo.pba.version}/files/pba.json?forceDownload=true"
+        }
+      ]
+    },
+    "extensions": {
+      "asr-base-service-extension-point": {
+        "name": "asr-base-service-extension-point",
+        "version": "1.0.0",
+        "description": "ASR implementation Spark Service extension",
+        "platform" : [
+          { "type":"marathon", "version": "latest"}
+        ],
+        "envars":[
+          {"name": "mainClass", "value" : "com.ericsson.aia.asr.correlations.ups.UserPlaneCorrelation_MR"},
+          {"name": "masterUrl",	 "value" : "spark://10.45.16.201:7077"},
+          {"name": "applicationJar", "value" : "/asr/uber-aia-ref-app-radio-ups-1.0.jar"},
+          {"name": "appArguments",	 "value" : "dataIn dataIn spark://10.45.16.201:7077  tachyon://10.45.16.201:19998 10.45.16.201:9092 60 http://ieatrcxb3650.athtem.eei.ericsson.se:8081/"}
+        ],
+        "structure": {
+          "instance_configuration":{
+            "cpu" : "4",
+            "memory" : { "size": 4,	"unit": "Gb"}
+          }
+        },
+        "pba_policies": [],
+        "pba_lifecycle": {
+          "min_instances":1,
+          "max_instances":4,
+          "scale_triggers": [
+            {"kpi": "response_time", "value": 60},
+            {"kpi": "cpu", "value":"90"}
+          ]
+        },
+        "dependencies" :[
+          {"type": "parent",
+            "reference": "urn:uuid:8cd66ae6-b1a3-4020-aca1-1b94a6ef8c6c"},
+          {"type": "extend",
+            "reference":"foundation",
+            "qualifier":""}
+        ],
+        "integration_points": {
+          "kafka-service:1.0.0": {
+            "description": "Kafka messaging service",
+            "name": "kafka-service",
+            "version": "1.0.0"
+          }
+        },
+        "service":[{
+
+        }]
+      }
+    }
+  },
+  "image": ${new groovy.json.JsonBuilder(pbaInfo.image?pbaInfo.image:[[
+  image_id:'armdocker.rnd.ericsson.se/aia/aia-'+pbaInfo.pba.name+':'+pbaInfo.pba.version,
+  image_name:pbaInfo.pba.name,
+  image_version:pbaInfo.pba.version,
+  image_type:"container"
+]]).toPrettyString()}
+}
